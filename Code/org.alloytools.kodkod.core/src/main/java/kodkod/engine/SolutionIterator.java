@@ -3,7 +3,6 @@ package kodkod.engine;
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;
 import java.io.UnsupportedEncodingException;
-import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -48,7 +47,7 @@ public final class SolutionIterator implements Iterator<Solution> {
     ArrayList<String>         same_highlevel;
     ArrayList<String>         diff_highlevel;
     private String            PROJECT_DIR_PATH = System.getProperty("user.dir");
-    private final String      HIDDEN_DIR_PATH  = Paths.get(PROJECT_DIR_PATH, ".hidden").toString();
+    private final String      HIDDEN_DIR_PATH  = "";
 
     /**
      * Constructs a solution iterator for the given formula, bounds, and options.

@@ -24,7 +24,6 @@ import java.io.OutputStream;
 import java.io.PrintWriter;
 import java.io.Serializable;
 import java.io.UnsupportedEncodingException;
-import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -610,7 +609,8 @@ final class SimpleReporter extends A4Reporter {
         ArrayList<String>               diff_hl;
 
         private String                  PROJECT_DIR_PATH = System.getProperty("user.dir");
-        private final String            HIDDEN_DIR_PATH  = Paths.get(PROJECT_DIR_PATH, ".hidden").toString();
+        private final String            HIDDEN_DIR_PATH  = "";
+
 
         private void cb(Object... objs) throws Exception {
             out.callback(objs);
@@ -723,7 +723,8 @@ final class SimpleReporter extends A4Reporter {
         public Map<String,String> map;
 
         private String            PROJECT_DIR_PATH = System.getProperty("user.dir");
-        private final String      HIDDEN_DIR_PATH  = Paths.get(PROJECT_DIR_PATH, ".hidden").toString();
+        private final String      HIDDEN_DIR_PATH  = "";
+
 
         public SimpleTask1() {
         }

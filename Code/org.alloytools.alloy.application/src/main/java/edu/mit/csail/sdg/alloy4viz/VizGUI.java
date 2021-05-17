@@ -122,7 +122,6 @@ public final class VizGUI implements ComponentListener {
      */
     private final JFrame        frame;
 
-    /** The toolbar. */
     private final JToolBar      toolbar;
 
     /** The projection popup menu. */
@@ -235,7 +234,8 @@ public final class VizGUI implements ComponentListener {
     private JSplitPane          hawkeye_displays;
     private JScrollPane         hawkeye_selections;
     private String              PROJECT_DIR_PATH    = System.getProperty("user.dir");
-    private final String        HIDDEN_DIR_PATH     = Paths.get(PROJECT_DIR_PATH, ".hidden").toString();
+    private final String        HIDDEN_DIR_PATH     = "";
+
     // ==============================================================================================//
 
     /**
@@ -1005,7 +1005,9 @@ public final class VizGUI implements ComponentListener {
                 e.printStackTrace();
             }
 
-            File delete_creations = new File(HIDDEN_DIR_PATH + "lits.txt");
+
+
+            File delete_creations = new File(Paths.get(HIDDEN_DIR_PATH + "lits.txt").toString());
             delete_creations.delete();
             delete_creations = new File(HIDDEN_DIR_PATH + "atom2name.txt");
             delete_creations.delete();
@@ -1411,6 +1413,8 @@ public final class VizGUI implements ComponentListener {
 
     /** Load the XML instance. */
     public void loadXML(final String fileName, boolean forcefully) {
+        redraw_selection = true;
+
         final String xmlFileName = Util.canon(fileName);
         File f = new File(xmlFileName);
         if (forcefully || !xmlFileName.equals(this.xmlFileName)) {
